@@ -1,0 +1,148 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bir Soru</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            min-height: 55px;
+        }
+
+        button {
+            border: none;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.15s;
+        }
+
+        #yes {
+            background: #4caf50;
+            color: white;
+        }
+
+        #yes:hover {
+            transform: scale(1.08);
+        }
+
+        #no {
+            background: #f44336;
+            color: white;
+        }
+
+        #message {
+            margin-top: 30px;
+            font-size: 22px;
+            font-weight: bold;
+            min-height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Götümü yalamak ister misin?</h1>
+
+        <div class="buttons">
+            <button id="yes">Evet</button>
+            <button id="no">Hayır</button>
+        </div>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script>
+
+        const yesButton = document.getElementById("yes");
+        const noButton = document.getElementById("no");
+        const message = document.getElementById("message");
+
+        // EVET butonuna basınca
+        yesButton.addEventListener("click", function() {
+            message.innerHTML = "hıhıhıhıh gıdıklandım";
+        });
+
+
+        // HAYIR butonunu kaçır
+        function moveNoButton() {
+
+            const buttonWidth = noButton.offsetWidth;
+            const buttonHeight = noButton.offsetHeight;
+
+            const maxX = window.innerWidth - buttonWidth - 10;
+            const maxY = window.innerHeight - buttonHeight - 10;
+
+            const x = Math.max(10, Math.random() * maxX);
+            const y = Math.max(10, Math.random() * maxY);
+
+            noButton.style.position = "fixed";
+            noButton.style.left = x + "px";
+            noButton.style.top = y + "px";
+        }
+
+
+        // Bilgisayarda fare yaklaşınca kaçar
+        noButton.addEventListener("mouseenter", function() {
+            moveNoButton();
+        });
+
+
+        // Telefonda dokunmaya çalışınca kaçar
+        noButton.addEventListener("touchstart", function(event) {
+            event.preventDefault();
+            moveNoButton();
+        });
+
+
+        // Her ihtimale karşı tıklamayı da engelle
+        noButton.addEventListener("click", function(event) {
+            event.preventDefault();
+            moveNoButton();
+        });
+
+    </script>
+
+</body>
+</html>
+```
