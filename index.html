@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>😏 Gizli Soru</title>
 
-    <!-- Daha güzel yazı tipi -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -31,6 +30,7 @@
             align-items: center;
 
             font-family: "Poppins", sans-serif;
+
             background:
                 radial-gradient(circle at 15% 20%, rgba(255,255,255,0.75), transparent 25%),
                 radial-gradient(circle at 85% 15%, rgba(255,182,207,0.8), transparent 30%),
@@ -38,7 +38,6 @@
                 linear-gradient(135deg, #ffd8e6 0%, #f8c7dd 45%, #eec8ef 100%);
         }
 
-        /* Yumuşak ışıklar */
         body::before,
         body::after {
             content: "";
@@ -65,7 +64,7 @@
             bottom: -100px;
         }
 
-        /* Arka plandaki transparan soyut şekil */
+        /* Arka plandaki transparan dekoratif şekil */
         .background-shape {
             position: fixed;
             left: 50%;
@@ -108,7 +107,7 @@
             background: rgba(140, 43, 88, 0.7);
         }
 
-        /* Ana kart */
+        /* Ana kutu */
         .card {
             position: relative;
             z-index: 5;
@@ -241,7 +240,7 @@
             color: #74284d;
         }
 
-        /* Kutucuktan çıkan küçük süsler */
+        /* Parıltılar */
         .sparkle {
             position: fixed;
             pointer-events: none;
@@ -298,7 +297,7 @@
             }
         }
 
-        /* Güler yüzler */
+        /* Gülen emojiler */
         .laughing {
             position: fixed;
             bottom: -40px;
@@ -371,7 +370,6 @@
         <div class="shape-center"></div>
     </div>
 
-
     <!-- Ana kutu -->
     <div class="card">
 
@@ -397,7 +395,6 @@
 
     </div>
 
-
     <script>
 
         const yesButton = document.getElementById("yes");
@@ -422,6 +419,7 @@
 
         /* ==========================
            HAYIR BUTONU KAÇSIN
+           SADECE TIKLAYINCA
         ========================== */
 
         function moveNoButton() {
@@ -442,12 +440,8 @@
         }
 
 
-        /* Bilgisayar */
-        noButton.addEventListener("mouseenter", moveNoButton);
-
-
-        /* Telefon */
-        noButton.addEventListener("pointerdown", function(event) {
+        /* PC ve telefonda tıklayınca/dokununca kaç */
+        noButton.addEventListener("click", function(event) {
 
             event.preventDefault();
             moveNoButton();
@@ -455,8 +449,8 @@
         });
 
 
-        /* Tıklamayı engelle */
-        noButton.addEventListener("click", function(event) {
+        /* Dokunmayı özellikle yakala */
+        noButton.addEventListener("touchend", function(event) {
 
             event.preventDefault();
             moveNoButton();
@@ -614,4 +608,4 @@
 
 </body>
 </html>
-```
+
