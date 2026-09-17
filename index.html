@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>😏 Gizli Soru</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,12 +13,14 @@
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        html, body {
+        html,
+        body {
             width: 100%;
             height: 100%;
-            margin: 0;
         }
 
         body {
@@ -32,171 +34,218 @@
             font-family: "Poppins", sans-serif;
 
             background:
-                radial-gradient(circle at 15% 20%, rgba(255,255,255,0.75), transparent 25%),
-                radial-gradient(circle at 85% 15%, rgba(255,182,207,0.8), transparent 30%),
-                radial-gradient(circle at 15% 90%, rgba(255,208,225,0.8), transparent 30%),
-                linear-gradient(135deg, #ffd8e6 0%, #f8c7dd 45%, #eec8ef 100%);
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(255, 255, 255, 0.8),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(255, 174, 204, 0.7),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 15% 90%,
+                    rgba(255, 214, 229, 0.85),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 90% 85%,
+                    rgba(219, 176, 243, 0.65),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #ffdce9 0%,
+                    #f8c9de 45%,
+                    #efd1f2 100%
+                );
         }
 
+        /* Soft ışıklar */
         body::before,
         body::after {
             content: "";
             position: fixed;
             border-radius: 50%;
-            filter: blur(60px);
+            filter: blur(65px);
             pointer-events: none;
-            opacity: 0.45;
+            z-index: 0;
         }
 
         body::before {
             width: 280px;
             height: 280px;
-            background: #ff9fbe;
-            top: -80px;
-            left: -70px;
+            background: rgba(255, 117, 165, 0.35);
+            top: -90px;
+            left: -80px;
         }
 
         body::after {
-            width: 320px;
-            height: 320px;
-            background: #dca5f8;
-            right: -100px;
-            bottom: -100px;
+            width: 360px;
+            height: 360px;
+            background: rgba(176, 124, 240, 0.28);
+            right: -120px;
+            bottom: -120px;
         }
 
-        /* Arka plandaki transparan dekoratif şekil */
+        /* Arkadaki transparan soyut çizim */
         .background-shape {
             position: fixed;
             left: 50%;
             top: 50%;
-            width: 520px;
-            height: 320px;
+            width: 540px;
+            height: 330px;
+
             transform: translate(-50%, -50%);
+
             opacity: 0.10;
-            filter: blur(1px);
             pointer-events: none;
+            z-index: 1;
         }
 
         .background-shape::before,
         .background-shape::after {
             content: "";
             position: absolute;
-            width: 220px;
-            height: 220px;
+
+            width: 230px;
+            height: 230px;
+
             border-radius: 50%;
-            background: #b94f78;
-            top: 35px;
+
+            background:
+                radial-gradient(
+                    circle at 40% 35%,
+                    rgba(255,255,255,0.4),
+                    transparent 25%
+                ),
+                #a63d70;
         }
 
         .background-shape::before {
-            left: 35px;
+            left: 25px;
+            top: 42px;
         }
 
         .background-shape::after {
-            right: 35px;
+            right: 25px;
+            top: 42px;
         }
 
         .shape-center {
             position: absolute;
-            width: 60px;
-            height: 230px;
+
             left: 50%;
-            top: 20px;
+            top: 32px;
+
+            width: 75px;
+            height: 245px;
+
             transform: translateX(-50%);
+
             border-radius: 50%;
-            background: rgba(140, 43, 88, 0.7);
+
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(101, 34, 68, 0.75) 0%,
+                    rgba(101, 34, 68, 0.35) 60%,
+                    transparent 75%
+                );
         }
 
-        /* Ana kutu */
+        /* Ana kart */
         .card {
             position: relative;
-            z-index: 5;
+            z-index: 10;
 
-            width: min(92%, 560px);
+            width: min(92%, 570px);
+
             padding: 46px 32px;
 
             text-align: center;
 
-            background: rgba(255, 255, 255, 0.46);
-            border: 1px solid rgba(255,255,255,0.75);
+            background: rgba(255, 255, 255, 0.48);
+
+            border: 1px solid rgba(255, 255, 255, 0.75);
+
             border-radius: 32px;
 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
 
             box-shadow:
-                0 25px 60px rgba(149, 70, 108, 0.18),
-                inset 0 1px 0 rgba(255,255,255,0.8);
-
-            animation: cardIn 0.7s ease;
-        }
-
-        @keyframes cardIn {
-            from {
-                opacity: 0;
-                transform: translateY(25px) scale(0.97);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+                0 25px 60px rgba(130, 65, 99, 0.18),
+                inset 0 1px 0 rgba(255,255,255,0.85);
         }
 
         .emoji-top {
             font-size: 58px;
             margin-bottom: 12px;
-            animation: wiggle 2.2s infinite ease-in-out;
+
+            animation:
+                emojiFloat 2.4s ease-in-out infinite;
         }
 
-        @keyframes wiggle {
-            0%, 100% {
-                transform: rotate(0deg);
+        @keyframes emojiFloat {
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
             }
 
-            25% {
-                transform: rotate(-5deg);
-            }
-
-            75% {
-                transform: rotate(5deg);
+            50% {
+                transform: translateY(-7px) rotate(3deg);
             }
         }
 
         .question {
-            margin: 0 auto 35px;
+            margin: 0 auto 36px;
 
             font-size: clamp(25px, 6vw, 41px);
+
             line-height: 1.18;
+
             font-weight: 800;
+
             letter-spacing: -1px;
 
             color: #652344;
-            text-shadow: 0 2px 12px rgba(255,255,255,0.55);
+
+            text-shadow:
+                0 2px 14px rgba(255,255,255,0.7);
         }
 
         .buttons {
             display: flex;
+
             justify-content: center;
             align-items: center;
+
             gap: 18px;
-            min-height: 64px;
-            position: relative;
+
+            min-height: 65px;
         }
 
         .btn {
             border: none;
             border-radius: 18px;
+
             padding: 16px 28px;
 
             min-width: 135px;
 
             font-family: "Poppins", sans-serif;
+
             font-size: 17px;
             font-weight: 700;
 
             color: white;
+
             cursor: pointer;
+
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
 
             transition:
                 transform 0.2s ease,
@@ -205,25 +254,42 @@
 
         /* EVET */
         #yes {
-            background: linear-gradient(135deg, #ff5f91, #e83f79);
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6697,
+                    #e83e79
+                );
+
             box-shadow:
-                0 10px 24px rgba(232,63,121,0.28),
-                inset 0 1px 0 rgba(255,255,255,0.35);
+                0 10px 25px rgba(232, 62, 121, 0.28),
+                inset 0 1px 0 rgba(255,255,255,0.4);
         }
 
         #yes:hover {
             transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 15px 30px rgba(232,63,121,0.38);
+
+            box-shadow:
+                0 15px 32px rgba(232, 62, 121, 0.38),
+                inset 0 1px 0 rgba(255,255,255,0.45);
         }
 
         /* HAYIR */
         #no {
-            background: linear-gradient(135deg, #9b86e9, #7562cc);
-            box-shadow:
-                0 10px 24px rgba(117,98,204,0.24),
-                inset 0 1px 0 rgba(255,255,255,0.3);
+            position: fixed;
 
-            position: relative;
+            background:
+                linear-gradient(
+                    135deg,
+                    #9c88e9,
+                    #7462ca
+                );
+
+            box-shadow:
+                0 10px 25px rgba(117, 98, 204, 0.25),
+                inset 0 1px 0 rgba(255,255,255,0.35);
+
+            z-index: 9999;
         }
 
         #no:hover {
@@ -231,7 +297,8 @@
         }
 
         #message {
-            min-height: 42px;
+            min-height: 45px;
+
             margin-top: 28px;
 
             font-size: 21px;
@@ -240,78 +307,57 @@
             color: #74284d;
         }
 
-        /* Parıltılar */
-        .sparkle {
-            position: fixed;
-            pointer-events: none;
-            z-index: 20;
-
-            animation: sparkleOut 1.5s forwards ease-out;
-        }
-
-        @keyframes sparkleOut {
-            0% {
-                transform: translate(0, 0) scale(0.4) rotate(0deg);
-                opacity: 0;
-            }
-
-            15% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translate(var(--x), var(--y)) scale(1.2) rotate(180deg);
-                opacity: 0;
-            }
-        }
-
         /* Konfeti */
         .confetti {
             position: fixed;
-            top: -20px;
 
-            width: 10px;
-            height: 18px;
+            top: -30px;
 
             border-radius: 3px;
 
-            z-index: 50;
             pointer-events: none;
 
-            animation: confettiFall var(--duration) linear forwards;
+            z-index: 100000;
+
+            animation:
+                confettiFall var(--duration) linear forwards;
         }
 
         @keyframes confettiFall {
             from {
                 transform:
-                    translateY(0)
-                    translateX(0)
+                    translate3d(0, 0, 0)
                     rotate(0deg);
             }
 
             to {
                 transform:
-                    translateY(110vh)
-                    translateX(var(--drift))
-                    rotate(760deg);
+                    translate3d(var(--drift), 110vh, 0)
+                    rotate(900deg);
             }
         }
 
         /* Gülen emojiler */
         .laughing {
             position: fixed;
-            bottom: -40px;
 
-            font-size: 30px;
-            z-index: 45;
+            bottom: -50px;
+
             pointer-events: none;
 
-            animation: laughRise var(--duration) ease-out forwards;
+            z-index: 99998;
+
+            animation:
+                laughRise var(--duration) ease-out forwards;
         }
 
         @keyframes laughRise {
             0% {
-                transform: translateY(0) rotate(0deg) scale(0.5);
+                transform:
+                    translate3d(0, 0, 0)
+                    rotate(0deg)
+                    scale(0.5);
+
                 opacity: 0;
             }
 
@@ -321,10 +367,46 @@
 
             100% {
                 transform:
-                    translateY(-115vh)
-                    translateX(var(--side))
+                    translate3d(var(--side), -115vh, 0)
                     rotate(360deg)
-                    scale(1.3);
+                    scale(1.2);
+
+                opacity: 0;
+            }
+        }
+
+        /* Parıltılar */
+        .sparkle {
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 99997;
+
+            animation:
+                sparkleOut 1.5s ease-out forwards;
+        }
+
+        @keyframes sparkleOut {
+            0% {
+                transform:
+                    translate3d(0, 0, 0)
+                    scale(0.4)
+                    rotate(0deg);
+
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                transform:
+                    translate3d(var(--x), var(--y), 0)
+                    scale(1.2)
+                    rotate(200deg);
+
                 opacity: 0;
             }
         }
@@ -332,6 +414,7 @@
         @media (max-width: 600px) {
 
             .card {
+                width: 92%;
                 padding: 38px 20px;
             }
 
@@ -357,7 +440,7 @@
             .background-shape {
                 width: 390px;
                 height: 250px;
-                opacity: 0.08;
+                opacity: 0.075;
             }
         }
     </style>
@@ -365,12 +448,10 @@
 
 <body>
 
-    <!-- Arka plan dekorasyonu -->
     <div class="background-shape">
         <div class="shape-center"></div>
     </div>
 
-    <!-- Ana kutu -->
     <div class="card">
 
         <div class="emoji-top">😏</div>
@@ -381,11 +462,17 @@
 
         <div class="buttons">
 
-            <button class="btn" id="yes">
+            <button
+                class="btn"
+                id="yes"
+                type="button">
                 Evet ❤️
             </button>
 
-            <button class="btn" id="no">
+            <button
+                class="btn"
+                id="no"
+                type="button">
                 Hayır 🙃
             </button>
 
@@ -397,70 +484,204 @@
 
     <script>
 
-        const yesButton = document.getElementById("yes");
-        const noButton = document.getElementById("no");
-        const message = document.getElementById("message");
+        const yesButton =
+            document.getElementById("yes");
+
+        const noButton =
+            document.getElementById("no");
+
+        const message =
+            document.getElementById("message");
 
 
-        /* ==========================
-           EVET
-        ========================== */
+        /* =========================
+           HAYIR BUTONUNU BODY'YE AL
+        ========================= */
 
-        yesButton.addEventListener("click", function() {
-
-            message.innerHTML = "hıhıhıhıh gıdıklandım 😂";
-
-            createConfetti();
-            createLaughingEmojis();
-            createSparkles();
-
-        });
+        document.body.appendChild(noButton);
 
 
-        /* ==========================
-           HAYIR BUTONU KAÇSIN
-           SADECE TIKLAYINCA
-        ========================== */
+        /* İlk konum */
+        function setInitialNoPosition() {
 
-        function moveNoButton() {
+            const yesRect =
+                yesButton.getBoundingClientRect();
 
-            const width = noButton.offsetWidth;
-            const height = noButton.offsetHeight;
+            const buttonWidth =
+                noButton.offsetWidth;
 
-            const maxX = window.innerWidth - width - 15;
-            const maxY = window.innerHeight - height - 15;
+            const buttonHeight =
+                noButton.offsetHeight;
 
-            const x = Math.max(10, Math.random() * maxX);
-            const y = Math.max(10, Math.random() * maxY);
+            let x =
+                yesRect.right + 18;
 
-            noButton.style.position = "fixed";
-            noButton.style.left = x + "px";
-            noButton.style.top = y + "px";
-            noButton.style.zIndex = "100";
+            let y =
+                yesRect.top;
+
+            if (
+                x + buttonWidth >
+                window.innerWidth - 10
+            ) {
+                x =
+                    yesRect.left - buttonWidth - 18;
+            }
+
+            if (x < 10) {
+                x = 10;
+            }
+
+            if (
+                y + buttonHeight >
+                window.innerHeight - 10
+            ) {
+                y =
+                    window.innerHeight -
+                    buttonHeight -
+                    10;
+            }
+
+            if (y < 10) {
+                y = 10;
+            }
+
+            noButton.style.left =
+                x + "px";
+
+            noButton.style.top =
+                y + "px";
         }
 
 
-        /* PC ve telefonda tıklayınca/dokununca kaç */
-        noButton.addEventListener("click", function(event) {
+        /* =========================
+           HAYIR BUTONUNU KAÇIR
+        ========================= */
 
-            event.preventDefault();
-            moveNoButton();
+        function moveNoButton() {
 
-        });
+            const margin = 12;
+
+            const buttonWidth =
+                noButton.offsetWidth;
+
+            const buttonHeight =
+                noButton.offsetHeight;
+
+            const availableWidth =
+                window.innerWidth -
+                buttonWidth -
+                margin * 2;
+
+            const availableHeight =
+                window.innerHeight -
+                buttonHeight -
+                margin * 2;
+
+            const x =
+                margin +
+                Math.random() *
+                Math.max(1, availableWidth);
+
+            const y =
+                margin +
+                Math.random() *
+                Math.max(1, availableHeight);
+
+            noButton.style.position =
+                "fixed";
+
+            noButton.style.left =
+                Math.min(
+                    x,
+                    window.innerWidth -
+                    buttonWidth -
+                    margin
+                ) + "px";
+
+            noButton.style.top =
+                Math.min(
+                    y,
+                    window.innerHeight -
+                    buttonHeight -
+                    margin
+                ) + "px";
+
+            noButton.style.display =
+                "block";
+
+            noButton.style.visibility =
+                "visible";
+
+            noButton.style.opacity =
+                "1";
+
+            noButton.style.zIndex =
+                "99999";
+
+            noButton.style.transform =
+                "none";
+        }
 
 
-        /* Dokunmayı özellikle yakala */
-        noButton.addEventListener("touchend", function(event) {
+        /* Sadece basınca kaç */
+        noButton.addEventListener(
+            "pointerdown",
+            function(event) {
 
-            event.preventDefault();
-            moveNoButton();
+                event.preventDefault();
 
-        });
+                event.stopPropagation();
+
+                moveNoButton();
+            }
+        );
 
 
-        /* ==========================
+        /* Ekran boyutu değişirse tekrar güvenli yere */
+        window.addEventListener(
+            "resize",
+            function() {
+
+                const rect =
+                    noButton.getBoundingClientRect();
+
+                const margin = 12;
+
+                if (
+                    rect.right > window.innerWidth ||
+                    rect.bottom > window.innerHeight ||
+                    rect.left < 0 ||
+                    rect.top < 0
+                ) {
+                    moveNoButton();
+                }
+            }
+        );
+
+
+        /* =========================
+           EVET
+        ========================= */
+
+        yesButton.addEventListener(
+            "click",
+            function() {
+
+                message.textContent =
+                    "hıhıhıhıh gıdıklandım 😂";
+
+                createConfetti();
+
+                createLaughingEmojis();
+
+                createSparkles();
+            }
+        );
+
+
+        /* =========================
            KONFETİ
-        ========================== */
+        ========================= */
 
         function createConfetti() {
 
@@ -473,46 +694,66 @@
                 "#ffc857"
             ];
 
-            for (let i = 0; i < 130; i++) {
+            for (
+                let i = 0;
+                i < 150;
+                i++
+            ) {
 
-                const piece = document.createElement("div");
+                const piece =
+                    document.createElement("div");
 
-                piece.className = "confetti";
+                piece.className =
+                    "confetti";
 
                 piece.style.left =
                     Math.random() * 100 + "vw";
 
                 piece.style.background =
-                    colors[Math.floor(Math.random() * colors.length)];
+                    colors[
+                        Math.floor(
+                            Math.random() *
+                            colors.length
+                        )
+                    ];
+
+                piece.style.width =
+                    6 +
+                    Math.random() * 7 +
+                    "px";
+
+                piece.style.height =
+                    10 +
+                    Math.random() * 13 +
+                    "px";
 
                 piece.style.setProperty(
                     "--drift",
-                    (Math.random() * 260 - 130) + "px"
+                    Math.random() * 300 - 150 + "px"
                 );
 
                 piece.style.setProperty(
                     "--duration",
-                    (2 + Math.random() * 2.5) + "s"
+                    2 +
+                    Math.random() * 3 +
+                    "s"
                 );
-
-                piece.style.width =
-                    (6 + Math.random() * 7) + "px";
-
-                piece.style.height =
-                    (10 + Math.random() * 13) + "px";
 
                 document.body.appendChild(piece);
 
-                setTimeout(() => {
-                    piece.remove();
-                }, 5000);
+                setTimeout(
+                    function() {
+                        piece.remove();
+                    },
+                    5500
+                );
             }
         }
 
 
-        /* ==========================
+        /* =========================
            GÜLEN EMOJİLER
-        ========================== */
+        ========================= */
 
         function createLaughingEmojis() {
 
@@ -521,46 +762,65 @@
                 "🤣",
                 "😆",
                 "😹",
-                "🤭"
+                "🤭",
+                "😁"
             ];
 
-            for (let i = 0; i < 18; i++) {
+            for (
+                let i = 0;
+                i < 20;
+                i++
+            ) {
 
-                const emoji = document.createElement("div");
+                const emoji =
+                    document.createElement("div");
 
-                emoji.className = "laughing";
+                emoji.className =
+                    "laughing";
 
-                emoji.innerHTML =
-                    emojis[Math.floor(Math.random() * emojis.length)];
+                emoji.textContent =
+                    emojis[
+                        Math.floor(
+                            Math.random() *
+                            emojis.length
+                        )
+                    ];
 
                 emoji.style.left =
                     Math.random() * 100 + "vw";
 
+                emoji.style.fontSize =
+                    24 +
+                    Math.random() * 24 +
+                    "px";
+
                 emoji.style.setProperty(
                     "--side",
-                    (Math.random() * 180 - 90) + "px"
+                    Math.random() * 220 - 110 + "px"
                 );
 
                 emoji.style.setProperty(
                     "--duration",
-                    (3 + Math.random() * 3) + "s"
+                    3 +
+                    Math.random() * 3 +
+                    "s"
                 );
-
-                emoji.style.fontSize =
-                    (24 + Math.random() * 24) + "px";
 
                 document.body.appendChild(emoji);
 
-                setTimeout(() => {
-                    emoji.remove();
-                }, 6500);
+                setTimeout(
+                    function() {
+                        emoji.remove();
+                    },
+                    7000
+                );
             }
         }
 
 
-        /* ==========================
+        /* =========================
            PARILTI
-        ========================== */
+        ========================= */
 
         function createSparkles() {
 
@@ -568,44 +828,75 @@
                 "✨",
                 "💖",
                 "💕",
-                "⭐"
+                "⭐",
+                "💗"
             ];
 
-            for (let i = 0; i < 25; i++) {
+            for (
+                let i = 0;
+                i < 28;
+                i++
+            ) {
 
-                const sparkle = document.createElement("div");
+                const sparkle =
+                    document.createElement("div");
 
-                sparkle.className = "sparkle";
+                sparkle.className =
+                    "sparkle";
 
-                sparkle.innerHTML =
-                    symbols[Math.floor(Math.random() * symbols.length)];
+                sparkle.textContent =
+                    symbols[
+                        Math.floor(
+                            Math.random() *
+                            symbols.length
+                        )
+                    ];
 
-                sparkle.style.left = "50%";
-                sparkle.style.top = "50%";
+                sparkle.style.left =
+                    "50%";
+
+                sparkle.style.top =
+                    "50%";
 
                 sparkle.style.setProperty(
                     "--x",
-                    (Math.random() * 650 - 325) + "px"
+                    Math.random() * 700 - 350 + "px"
                 );
 
                 sparkle.style.setProperty(
                     "--y",
-                    (Math.random() * 500 - 250) + "px"
+                    Math.random() * 500 - 250 + "px"
                 );
 
                 sparkle.style.fontSize =
-                    (12 + Math.random() * 20) + "px";
+                    12 +
+                    Math.random() * 22 +
+                    "px";
 
                 document.body.appendChild(sparkle);
 
-                setTimeout(() => {
-                    sparkle.remove();
-                }, 1600);
+                setTimeout(
+                    function() {
+                        sparkle.remove();
+                    },
+                    1700
+                );
             }
         }
+
+
+        /* İlk konumu sayfa tamamen açıldıktan sonra ayarla */
+        window.addEventListener(
+            "load",
+            function() {
+                setTimeout(
+                    setInitialNoPosition,
+                    100
+                );
+            }
+        );
 
     </script>
 
 </body>
 </html>
-
